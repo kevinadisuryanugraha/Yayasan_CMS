@@ -48,10 +48,13 @@ if (isset($_SESSION['alert'])) {
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu About Section?</h5>
+                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu About
+                                Section?</h5>
                             <p class="mb-0 text-muted">
-                                <strong>About Section</strong> adalah bagian yang menampilkan informasi tentang organisasi/lembaga Anda di halaman utama website. 
-                                Bagian ini biasanya berisi gambar, judul, sub judul, dan deskripsi singkat yang menjelaskan siapa Anda, apa visi misi, 
+                                <strong>About Section</strong> adalah bagian yang menampilkan informasi tentang
+                                organisasi/lembaga Anda di halaman utama website.
+                                Bagian ini biasanya berisi gambar, judul, sub judul, dan deskripsi singkat yang
+                                menjelaskan siapa Anda, apa visi misi,
                                 dan mengapa pengunjung harus mengenal lebih jauh tentang organisasi Anda.
                             </p>
                         </div>
@@ -83,77 +86,79 @@ if (isset($_SESSION['alert'])) {
                     </div>
 
                     <?php if (count($rows) > 0): ?>
-                    <div class="table-responsive">
-                        <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th width="10%">Gambar</th>
-                                    <th width="15%">Sub Judul</th>
-                                    <th width="20%">Judul</th>
-                                    <th width="20%">Sub-Heading</th>
-                                    <th width="10%">Status</th>
-                                    <th width="20%">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($rows as $key => $row): ?>
+                        <div class="table-responsive">
+                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $key + 1; ?></td>
-                                        <td>
-                                            <?php if (!empty($row['image'])): ?>
-                                                <img src="<?php echo '../' . $row['image']; ?>" alt="Gambar About"
-                                                    style="max-width: 80px; height: auto; border-radius: 4px;">
-                                            <?php else: ?>
-                                                <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada Gambar</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td><?php echo htmlspecialchars($row['subtitle'] ?? ''); ?></td>
-                                        <td>
-                                            <?php 
-                                            $title = htmlspecialchars($row['title'] ?? '');
-                                            echo strlen($title) > 50 ? substr($title, 0, 50) . '...' : $title;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php 
-                                            $subheading = htmlspecialchars($row['sub_heading'] ?? '');
-                                            echo strlen($subheading) > 40 ? substr($subheading, 0, 40) . '...' : $subheading;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php if ($row['is_active']): ?>
-                                                <span class="badge badge-success">Aktif</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-secondary">Nonaktif</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <a href="?page=edit_about&id=<?php echo $row['id']; ?>"
-                                                class="btn btn-sm btn-primary" title="Ubah">
-                                                <i class="mdi mdi-pencil"></i> Ubah
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-danger btn-delete" 
-                                                title="Hapus"
-                                                data-id="<?php echo $row['id']; ?>"
-                                                data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
-                                                <i class="mdi mdi-delete"></i> Hapus
-                                            </button>
-                                        </td>
+                                        <th width="5%">No</th>
+                                        <th width="10%">Gambar</th>
+                                        <th width="15%">Sub Judul</th>
+                                        <th width="20%">Judul</th>
+                                        <th width="20%">Sub-Heading</th>
+                                        <th width="10%">Status</th>
+                                        <th width="20%">Aksi</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($rows as $key => $row): ?>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td>
+                                                <?php if (!empty($row['image'])): ?>
+                                                    <img src="<?php echo '../' . $row['image']; ?>" alt="Gambar About"
+                                                        style="max-width: 80px; height: auto; border-radius: 4px;">
+                                                <?php else: ?>
+                                                    <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada
+                                                        Gambar</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td><?php echo htmlspecialchars($row['subtitle'] ?? ''); ?></td>
+                                            <td>
+                                                <?php
+                                                $title = htmlspecialchars($row['title'] ?? '');
+                                                echo strlen($title) > 50 ? substr($title, 0, 50) . '...' : $title;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                $subheading = htmlspecialchars($row['sub_heading'] ?? '');
+                                                echo strlen($subheading) > 40 ? substr($subheading, 0, 40) . '...' : $subheading;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($row['is_active']): ?>
+                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-secondary">Nonaktif</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <a href="?page=edit_about&id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-sm btn-primary" title="Ubah">
+                                                    <i class="mdi mdi-pencil"></i> Ubah
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
+                                                    data-id="<?php echo $row['id']; ?>"
+                                                    data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
-                    <div class="text-center py-5">
-                        <i class="mdi mdi-information-outline text-muted" style="font-size: 48px;"></i>
-                        <h5 class="mt-3 text-muted">Belum Ada Konten About</h5>
-                        <p class="text-muted">Klik "Tambah About Baru" untuk membuat konten about section pertama Anda.</p>
-                        <a href="?page=add_about" class="btn btn-success mt-2">
-                            <i class="mdi mdi-plus"></i> Tambah About Baru
-                        </a>
-                    </div>
+                        <div class="text-center py-5">
+                            <i class="mdi mdi-information-outline text-muted" style="font-size: 48px;"></i>
+                            <h5 class="mt-3 text-muted">Belum Ada Konten About</h5>
+                            <p class="text-muted">Klik "Tambah About Baru" untuk membuat konten about section pertama Anda.
+                            </p>
+                            <a href="?page=add_about" class="btn btn-success mt-2">
+                                <i class="mdi mdi-plus"></i> Tambah About Baru
+                            </a>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -172,19 +177,23 @@ if (isset($_SESSION['alert'])) {
                     <ol class="mb-0">
                         <li class="mb-2">
                             <strong>Menambah About Baru:</strong><br>
-                            <small class="text-muted">Klik tombol hijau "Tambah About Baru", lalu isi formulir dengan gambar, judul, deskripsi, dan informasi lainnya.</small>
+                            <small class="text-muted">Klik tombol hijau "Tambah About Baru", lalu isi formulir dengan
+                                gambar, judul, deskripsi, dan informasi lainnya.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Mengubah About:</strong><br>
-                            <small class="text-muted">Klik tombol biru "Ubah" pada baris konten yang ingin diubah.</small>
+                            <small class="text-muted">Klik tombol biru "Ubah" pada baris konten yang ingin
+                                diubah.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Menghapus About:</strong><br>
-                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum dihapus.</small>
+                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum
+                                dihapus.</small>
                         </li>
                         <li class="mb-0">
                             <strong>Status Aktif/Nonaktif:</strong><br>
-                            <small class="text-muted">Hanya konten dengan status "Aktif" yang ditampilkan di halaman depan website.</small>
+                            <small class="text-muted">Hanya konten dengan status "Aktif" yang ditampilkan di halaman
+                                depan website.</small>
                         </li>
                     </ol>
                 </div>
@@ -201,19 +210,23 @@ if (isset($_SESSION['alert'])) {
                     <ul class="mb-0">
                         <li class="mb-2">
                             <strong>Gambar Berkualitas:</strong><br>
-                            <small class="text-muted">Gunakan gambar yang relevan dan berkualitas tinggi untuk menarik perhatian pengunjung.</small>
+                            <small class="text-muted">Gunakan gambar yang relevan dan berkualitas tinggi untuk menarik
+                                perhatian pengunjung.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Judul yang Menarik:</strong><br>
-                            <small class="text-muted">Buat judul yang singkat, jelas, dan menggambarkan organisasi Anda.</small>
+                            <small class="text-muted">Buat judul yang singkat, jelas, dan menggambarkan organisasi
+                                Anda.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Deskripsi Informatif:</strong><br>
-                            <small class="text-muted">Jelaskan visi, misi, dan keunggulan organisasi secara singkat dan padat.</small>
+                            <small class="text-muted">Jelaskan visi, misi, dan keunggulan organisasi secara singkat dan
+                                padat.</small>
                         </li>
                         <li class="mb-0">
                             <strong>Satu Konten Aktif:</strong><br>
-                            <small class="text-muted">Disarankan hanya mengaktifkan satu konten about untuk tampilan yang konsisten.</small>
+                            <small class="text-muted">Disarankan hanya mengaktifkan satu konten about untuk tampilan
+                                yang konsisten.</small>
                         </li>
                     </ul>
                 </div>
@@ -272,37 +285,37 @@ if (isset($_SESSION['alert'])) {
 <?php echo $alert_script; ?>
 
 <script>
-// SweetAlert untuk konfirmasi hapus
-document.querySelectorAll('.btn-delete').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const title = this.dataset.title;
-        
-        Swal.fire({
-            icon: 'warning',
-            title: 'Hapus Konten About?',
-            html: 'Anda akan menghapus about section:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
-            showCancelButton: true,
-            confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
-            cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
-            confirmButtonColor: '#dc3545',
-            cancelButtonColor: '#6c757d',
-            reverseButtons: true,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Menghapus...',
-                    html: 'Mohon tunggu sebentar',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                window.location.href = '?page=delete_about&id=' + id + '&confirm=yes';
-            }
+    // SweetAlert untuk konfirmasi hapus
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+            const title = this.dataset.title;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Konten About?',
+                html: 'Anda akan menghapus about section:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
+                showCancelButton: true,
+                confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
+                cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    window.location.href = '?page=delete_about&id=' + id + '&confirm=yes';
+                }
+            });
         });
     });
-});
 </script>

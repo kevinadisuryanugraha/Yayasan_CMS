@@ -48,11 +48,15 @@ if (isset($_SESSION['alert'])) {
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu Feature Section?</h5>
+                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu
+                                Feature Section?</h5>
                             <p class="mb-0 text-muted">
-                                <strong>Feature Section</strong> adalah bagian yang menampilkan kartu-kartu fitur/layanan unggulan di halaman utama website. 
-                                Setiap kartu biasanya berisi ikon, judul, dan deskripsi singkat. Contoh: Kajian Al-Quran, Sejarah Islam, 
-                                Konsultasi Syariah, dll. Bagian ini membantu pengunjung mengetahui layanan apa saja yang tersedia.
+                                <strong>Feature Section</strong> adalah bagian yang menampilkan kartu-kartu
+                                fitur/layanan unggulan di halaman utama website.
+                                Setiap kartu biasanya berisi ikon, judul, dan deskripsi singkat. Contoh: Kajian
+                                Al-Quran, Sejarah Islam,
+                                Konsultasi Syariah, dll. Bagian ini membantu pengunjung mengetahui layanan apa saja yang
+                                tersedia.
                             </p>
                         </div>
                         <div class="col-md-4 text-center mt-3 mt-md-0">
@@ -84,7 +88,8 @@ if (isset($_SESSION['alert'])) {
 
                     <?php if (count($rows) > 0): ?>
                         <div class="table-responsive">
-                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
                                 <thead>
                                     <tr>
                                         <th width="5%">No</th>
@@ -98,46 +103,45 @@ if (isset($_SESSION['alert'])) {
                                 </thead>
                                 <tbody>
                                     <?php foreach ($rows as $key => $row): ?>
-                                            <tr>
-                                                <td><?php echo $key + 1; ?></td>
-                                                <td>
-                                                    <?php if (!empty($row['icon'])): ?>
-                                                            <img src="<?php echo '../' . $row['icon']; ?>" alt="Ikon Fitur"
-                                                                style="max-width: 50px; height: auto; border-radius: 4px;">
-                                                    <?php else: ?>
-                                                            <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td><?php echo htmlspecialchars($row['title'] ?? ''); ?></td>
-                                                <td>
-                                                    <?php
-                                                    $desc = htmlspecialchars($row['description'] ?? '');
-                                                    echo strlen($desc) > 50 ? substr($desc, 0, 50) . '...' : $desc;
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span>
-                                                </td>
-                                                <td>
-                                                    <?php if ($row['is_active']): ?>
-                                                            <span class="badge badge-success">Aktif</span>
-                                                    <?php else: ?>
-                                                            <span class="badge badge-secondary">Nonaktif</span>
-                                                    <?php endif; ?>
-                                                </td>
-                                                <td>
-                                                    <a href="?page=edit_feature&id=<?php echo $row['id']; ?>"
-                                                        class="btn btn-sm btn-primary" title="Ubah">
-                                                        <i class="mdi mdi-pencil"></i> Ubah
-                                                    </a>
-                                                    <button type="button" class="btn btn-sm btn-danger btn-delete" 
-                                                        title="Hapus"
-                                                        data-id="<?php echo $row['id']; ?>"
-                                                        data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
-                                                        <i class="mdi mdi-delete"></i> Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td>
+                                                <?php if (!empty($row['icon'])): ?>
+                                                    <img src="<?php echo '../' . $row['icon']; ?>" alt="Ikon Fitur"
+                                                        style="max-width: 50px; height: auto; border-radius: 4px;">
+                                                <?php else: ?>
+                                                    <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td><?php echo htmlspecialchars($row['title'] ?? ''); ?></td>
+                                            <td>
+                                                <?php
+                                                $desc = htmlspecialchars($row['description'] ?? '');
+                                                echo strlen($desc) > 50 ? substr($desc, 0, 50) . '...' : $desc;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span>
+                                            </td>
+                                            <td>
+                                                <?php if ($row['is_active']): ?>
+                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-secondary">Nonaktif</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <a href="?page=edit_feature&id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-sm btn-primary" title="Ubah">
+                                                    <i class="mdi mdi-pencil"></i> Ubah
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
+                                                    data-id="<?php echo $row['id']; ?>"
+                                                    data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -169,19 +173,23 @@ if (isset($_SESSION['alert'])) {
                     <ol class="mb-0">
                         <li class="mb-2">
                             <strong>Menambah Fitur Baru:</strong><br>
-                            <small class="text-muted">Klik tombol hijau "Tambah Fitur Baru", lalu isi ikon, judul, dan deskripsi.</small>
+                            <small class="text-muted">Klik tombol hijau "Tambah Fitur Baru", lalu isi ikon, judul, dan
+                                deskripsi.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Mengubah Fitur:</strong><br>
-                            <small class="text-muted">Klik tombol biru "Ubah" pada baris fitur yang ingin diubah.</small>
+                            <small class="text-muted">Klik tombol biru "Ubah" pada baris fitur yang ingin
+                                diubah.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Menghapus Fitur:</strong><br>
-                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum dihapus.</small>
+                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum
+                                dihapus.</small>
                         </li>
                         <li class="mb-0">
                             <strong>Mengatur Urutan:</strong><br>
-                            <small class="text-muted">Gunakan angka urutan untuk menentukan posisi tampilan kartu.</small>
+                            <small class="text-muted">Gunakan angka urutan untuk menentukan posisi tampilan
+                                kartu.</small>
                         </li>
                     </ol>
                 </div>
@@ -202,7 +210,8 @@ if (isset($_SESSION['alert'])) {
                         </li>
                         <li class="mb-2">
                             <strong>Judul Singkat:</strong><br>
-                            <small class="text-muted">Maksimal 3-4 kata agar mudah dibaca. Contoh: "Kajian Al-Quran"</small>
+                            <small class="text-muted">Maksimal 3-4 kata agar mudah dibaca. Contoh: "Kajian
+                                Al-Quran"</small>
                         </li>
                         <li class="mb-2">
                             <strong>Deskripsi Informatif:</strong><br>
@@ -210,7 +219,8 @@ if (isset($_SESSION['alert'])) {
                         </li>
                         <li class="mb-0">
                             <strong>Contoh Fitur:</strong><br>
-                            <small class="text-muted">Kajian Quran, Sejarah Islam, Konsultasi Syariah, Kelas Tahfidz</small>
+                            <small class="text-muted">Kajian Quran, Sejarah Islam, Konsultasi Syariah, Kelas
+                                Tahfidz</small>
                         </li>
                     </ul>
                 </div>
@@ -269,37 +279,37 @@ if (isset($_SESSION['alert'])) {
 <?php echo $alert_script; ?>
 
 <script>
-// SweetAlert untuk konfirmasi hapus
-document.querySelectorAll('.btn-delete').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const title = this.dataset.title;
-        
-        Swal.fire({
-            icon: 'warning',
-            title: 'Hapus Kartu Fitur?',
-            html: 'Anda akan menghapus fitur:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
-            showCancelButton: true,
-            confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
-            cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
-            confirmButtonColor: '#dc3545',
-            cancelButtonColor: '#6c757d',
-            reverseButtons: true,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Menghapus...',
-                    html: 'Mohon tunggu sebentar',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                window.location.href = '?page=delete_feature&id=' + id + '&confirm=yes';
-            }
+    // SweetAlert untuk konfirmasi hapus
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+            const title = this.dataset.title;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Kartu Fitur?',
+                html: 'Anda akan menghapus fitur:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
+                showCancelButton: true,
+                confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
+                cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    window.location.href = '?page=delete_feature&id=' + id + '&confirm=yes';
+                }
+            });
         });
     });
-});
 </script>

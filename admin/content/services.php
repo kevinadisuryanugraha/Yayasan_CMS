@@ -47,11 +47,15 @@ if (isset($_SESSION['alert'])) {
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu Service Section?</h5>
+                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu
+                                Service Section?</h5>
                             <p class="mb-0 text-muted">
-                                <strong>Service Section</strong> adalah bagian yang menampilkan berbagai layanan yang ditawarkan oleh masjid/Islamic center. 
-                                Setiap kartu layanan berisi kategori, judul, deskripsi, dan ikon. Contoh layanan: Kajian Rutin, Konsultasi Syariah, 
-                                Pendidikan Anak, Zakat & Infaq, dll. Bagian ini membantu pengunjung mengetahui program apa saja yang tersedia.
+                                <strong>Service Section</strong> adalah bagian yang menampilkan berbagai layanan yang
+                                ditawarkan oleh masjid/Islamic center.
+                                Setiap kartu layanan berisi kategori, judul, deskripsi, dan ikon. Contoh layanan: Kajian
+                                Rutin, Konsultasi Syariah,
+                                Pendidikan Anak, Zakat & Infaq, dll. Bagian ini membantu pengunjung mengetahui program
+                                apa saja yang tersedia.
                             </p>
                         </div>
                         <div class="col-md-4 text-center mt-3 mt-md-0">
@@ -87,78 +91,79 @@ if (isset($_SESSION['alert'])) {
                     </div>
 
                     <?php if (count($rows) > 0): ?>
-                    <div class="table-responsive">
-                        <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th width="8%">Ikon</th>
-                                    <th width="12%">Kategori</th>
-                                    <th width="18%">Judul</th>
-                                    <th width="22%">Deskripsi</th>
-                                    <th width="8%">Urutan</th>
-                                    <th width="10%">Status</th>
-                                    <th width="17%">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($rows as $key => $row): ?>
+                        <div class="table-responsive">
+                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $key + 1; ?></td>
-                                        <td>
-                                            <?php if (!empty($row['icon'])): ?>
-                                                <img src="<?php echo '../' . $row['icon']; ?>" alt="Ikon"
-                                                    style="max-width: 50px; height: auto; border-radius: 4px;">
-                                            <?php else: ?>
-                                                <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-primary"><?php echo htmlspecialchars($row['category'] ?? '-'); ?></span>
-                                        </td>
-                                        <td><?php echo htmlspecialchars($row['title'] ?? ''); ?></td>
-                                        <td>
-                                            <?php 
-                                            $desc = htmlspecialchars($row['description'] ?? '');
-                                            echo strlen($desc) > 50 ? substr($desc, 0, 50) . '...' : $desc;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span>
-                                        </td>
-                                        <td>
-                                            <?php if ($row['is_active']): ?>
-                                                <span class="badge badge-success">Aktif</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-secondary">Nonaktif</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <a href="?page=edit_service&id=<?php echo $row['id']; ?>"
-                                                class="btn btn-sm btn-primary" title="Ubah">
-                                                <i class="mdi mdi-pencil"></i> Ubah
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-danger btn-delete" 
-                                                title="Hapus"
-                                                data-id="<?php echo $row['id']; ?>"
-                                                data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
-                                                <i class="mdi mdi-delete"></i> Hapus
-                                            </button>
-                                        </td>
+                                        <th width="5%">No</th>
+                                        <th width="8%">Ikon</th>
+                                        <th width="12%">Kategori</th>
+                                        <th width="18%">Judul</th>
+                                        <th width="22%">Deskripsi</th>
+                                        <th width="8%">Urutan</th>
+                                        <th width="10%">Status</th>
+                                        <th width="17%">Aksi</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($rows as $key => $row): ?>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td>
+                                                <?php if (!empty($row['icon'])): ?>
+                                                    <img src="<?php echo '../' . $row['icon']; ?>" alt="Ikon"
+                                                        style="max-width: 50px; height: auto; border-radius: 4px;">
+                                                <?php else: ?>
+                                                    <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="badge badge-primary"><?php echo htmlspecialchars($row['category'] ?? '-'); ?></span>
+                                            </td>
+                                            <td><?php echo htmlspecialchars($row['title'] ?? ''); ?></td>
+                                            <td>
+                                                <?php
+                                                $desc = htmlspecialchars($row['description'] ?? '');
+                                                echo strlen($desc) > 50 ? substr($desc, 0, 50) . '...' : $desc;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span>
+                                            </td>
+                                            <td>
+                                                <?php if ($row['is_active']): ?>
+                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-secondary">Nonaktif</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <a href="?page=edit_service&id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-sm btn-primary" title="Ubah">
+                                                    <i class="mdi mdi-pencil"></i> Ubah
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
+                                                    data-id="<?php echo $row['id']; ?>"
+                                                    data-title="<?php echo htmlspecialchars($row['title'] ?? 'Tanpa Judul'); ?>">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
-                    <div class="text-center py-5">
-                        <i class="mdi mdi-hand-heart-outline text-muted" style="font-size: 48px;"></i>
-                        <h5 class="mt-3 text-muted">Belum Ada Layanan</h5>
-                        <p class="text-muted">Klik "Tambah Layanan Baru" untuk membuat layanan pertama Anda.</p>
-                        <a href="?page=add_service" class="btn btn-success mt-2">
-                            <i class="mdi mdi-plus"></i> Tambah Layanan Baru
-                        </a>
-                    </div>
+                        <div class="text-center py-5">
+                            <i class="mdi mdi-hand-heart-outline text-muted" style="font-size: 48px;"></i>
+                            <h5 class="mt-3 text-muted">Belum Ada Layanan</h5>
+                            <p class="text-muted">Klik "Tambah Layanan Baru" untuk membuat layanan pertama Anda.</p>
+                            <a href="?page=add_service" class="btn btn-success mt-2">
+                                <i class="mdi mdi-plus"></i> Tambah Layanan Baru
+                            </a>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -177,15 +182,18 @@ if (isset($_SESSION['alert'])) {
                     <ol class="mb-0">
                         <li class="mb-2">
                             <strong>Menambah Layanan Baru:</strong><br>
-                            <small class="text-muted">Klik tombol hijau "Tambah Layanan Baru", lalu isi kategori, judul, deskripsi, dan ikon.</small>
+                            <small class="text-muted">Klik tombol hijau "Tambah Layanan Baru", lalu isi kategori, judul,
+                                deskripsi, dan ikon.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Mengubah Layanan:</strong><br>
-                            <small class="text-muted">Klik tombol biru "Ubah" pada baris layanan yang ingin diubah.</small>
+                            <small class="text-muted">Klik tombol biru "Ubah" pada baris layanan yang ingin
+                                diubah.</small>
                         </li>
                         <li class="mb-2">
                             <strong>Menghapus Layanan:</strong><br>
-                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum dihapus.</small>
+                            <small class="text-muted">Klik tombol merah "Hapus". Akan muncul konfirmasi sebelum
+                                dihapus.</small>
                         </li>
                         <li class="mb-0">
                             <strong>Edit CMS Header:</strong><br>
@@ -206,7 +214,8 @@ if (isset($_SESSION['alert'])) {
                     <ul class="mb-3">
                         <li class="mb-2">
                             <strong>Kategori:</strong><br>
-                            <small class="text-muted">Kelompokkan layanan seperti: Pendidikan, Sosial, Ibadah, Konsultasi</small>
+                            <small class="text-muted">Kelompokkan layanan seperti: Pendidikan, Sosial, Ibadah,
+                                Konsultasi</small>
                         </li>
                         <li class="mb-2">
                             <strong>Judul Singkat:</strong><br>
@@ -280,37 +289,37 @@ if (isset($_SESSION['alert'])) {
 <?php echo $alert_script; ?>
 
 <script>
-// SweetAlert untuk konfirmasi hapus
-document.querySelectorAll('.btn-delete').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const title = this.dataset.title;
-        
-        Swal.fire({
-            icon: 'warning',
-            title: 'Hapus Layanan?',
-            html: 'Anda akan menghapus layanan:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
-            showCancelButton: true,
-            confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
-            cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
-            confirmButtonColor: '#dc3545',
-            cancelButtonColor: '#6c757d',
-            reverseButtons: true,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Menghapus...',
-                    html: 'Mohon tunggu sebentar',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                window.location.href = '?page=delete_service&id=' + id + '&confirm=yes';
-            }
+    // SweetAlert untuk konfirmasi hapus
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+            const title = this.dataset.title;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Layanan?',
+                html: 'Anda akan menghapus layanan:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
+                showCancelButton: true,
+                confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
+                cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    window.location.href = '?page=delete_service&id=' + id + '&confirm=yes';
+                }
+            });
         });
     });
-});
 </script>

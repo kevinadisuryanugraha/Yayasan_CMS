@@ -4,13 +4,17 @@ include 'admin/koneksi.php';
 
 // Load site settings for header, meta, etc.
 include 'inc/site_settings.php';
+
+// Load appearance settings for theming
+include 'inc/appearance_settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title><?php echo htmlspecialchars($site_settings['site_name'] ?? 'Hafsa'); ?> -
-        <?php echo htmlspecialchars($site_settings['site_tagline'] ?? 'Islamic Center'); ?></title>
+        <?php echo htmlspecialchars($site_settings['site_tagline'] ?? 'Islamic Center'); ?>
+    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo htmlspecialchars($site_settings['site_description'] ?? ''); ?>">
@@ -22,12 +26,20 @@ include 'inc/site_settings.php';
         <link rel="shortcut icon" type="image/x-icon" href="assets/images/x-icon/01.png">
     <?php endif; ?>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="<?php echo $google_fonts_url; ?>" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
+<link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/lightcase.css">
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Dynamic Appearance Styles -->
+    <?php echo getAppearanceCss($appearance_settings, $btn_radius, $font_family); ?>
 </head>
 
 <body>

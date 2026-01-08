@@ -50,10 +50,13 @@ if (isset($_SESSION['alert'])) {
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu Acara?</h5>
+                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu Acara?
+                            </h5>
                             <p class="mb-0 text-muted">
-                                <strong>Acara (Event)</strong> adalah kegiatan atau event yang akan datang yang ingin Anda tampilkan 
-                                di halaman utama website. Pengunjung dapat melihat informasi tanggal, waktu, lokasi, dan deskripsi acara.
+                                <strong>Acara (Event)</strong> adalah kegiatan atau event yang akan datang yang ingin
+                                Anda tampilkan
+                                di halaman utama website. Pengunjung dapat melihat informasi tanggal, waktu, lokasi, dan
+                                deskripsi acara.
                             </p>
                         </div>
                         <div class="col-md-4 text-center mt-3 mt-md-0">
@@ -89,90 +92,92 @@ if (isset($_SESSION['alert'])) {
                     </div>
 
                     <?php if (count($rows) > 0): ?>
-                    <div class="table-responsive">
-                        <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th width="8%">Gambar</th>
-                                    <th width="20%">Judul Acara</th>
-                                    <th width="12%">Tanggal</th>
-                                    <th width="8%">Waktu</th>
-                                    <th width="15%">Lokasi</th>
-                                    <th width="8%">Unggulan</th>
-                                    <th width="8%">Status</th>
-                                    <th width="12%">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($rows as $key => $row): ?>
+                        <div class="table-responsive">
+                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $key + 1; ?></td>
-                                        <td>
-                                            <?php if (!empty($row['image'])): ?>
-                                                <img src="<?php echo '../' . $row['image']; ?>" alt="Event"
-                                                    style="max-width: 50px; height: auto; border-radius: 4px;">
-                                            <?php else: ?>
-                                                <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <?php 
-                                            $title = htmlspecialchars($row['title'] ?? '');
-                                            echo strlen($title) > 40 ? substr($title, 0, 40) . '...' : $title;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <i class="mdi mdi-calendar text-primary"></i>
-                                            <?php echo date('d M Y', strtotime($row['event_date'])); ?>
-                                        </td>
-                                        <td>
-                                            <?php if (!empty($row['event_time'])): ?>
-                                                <i class="mdi mdi-clock text-info"></i>
-                                                <?php echo date('H:i', strtotime($row['event_time'])); ?>
-                                            <?php else: ?>
-                                                <span class="text-muted">-</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td><small><?php echo htmlspecialchars($row['location'] ?? '-'); ?></small></td>
-                                        <td>
-                                            <?php if ($row['is_featured']): ?>
-                                                <span class="badge badge-warning"><i class="mdi mdi-star"></i> Ya</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-light">Tidak</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <?php if ($row['is_active']): ?>
-                                                <span class="badge badge-success">Aktif</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-secondary">Nonaktif</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <a href="?page=edit_event&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary" title="Ubah">
-                                                <i class="mdi mdi-pencil"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
-                                                data-id="<?php echo $row['id']; ?>"
-                                                data-title="<?php echo htmlspecialchars($row['title'] ?? ''); ?>">
-                                                <i class="mdi mdi-delete"></i>
-                                            </button>
-                                        </td>
+                                        <th width="5%">No</th>
+                                        <th width="8%">Gambar</th>
+                                        <th width="20%">Judul Acara</th>
+                                        <th width="12%">Tanggal</th>
+                                        <th width="8%">Waktu</th>
+                                        <th width="15%">Lokasi</th>
+                                        <th width="8%">Unggulan</th>
+                                        <th width="8%">Status</th>
+                                        <th width="12%">Aksi</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($rows as $key => $row): ?>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td>
+                                                <?php if (!empty($row['image'])): ?>
+                                                    <img src="<?php echo '../' . $row['image']; ?>" alt="Event"
+                                                        style="max-width: 50px; height: auto; border-radius: 4px;">
+                                                <?php else: ?>
+                                                    <span class="text-muted"><i class="mdi mdi-image-off"></i> Tidak Ada</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                $title = htmlspecialchars($row['title'] ?? '');
+                                                echo strlen($title) > 40 ? substr($title, 0, 40) . '...' : $title;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <i class="mdi mdi-calendar text-primary"></i>
+                                                <?php echo date('d M Y', strtotime($row['event_date'])); ?>
+                                            </td>
+                                            <td>
+                                                <?php if (!empty($row['event_time'])): ?>
+                                                    <i class="mdi mdi-clock text-info"></i>
+                                                    <?php echo date('H:i', strtotime($row['event_time'])); ?>
+                                                <?php else: ?>
+                                                    <span class="text-muted">-</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td><small><?php echo htmlspecialchars($row['location'] ?? '-'); ?></small></td>
+                                            <td>
+                                                <?php if ($row['is_featured']): ?>
+                                                    <span class="badge badge-warning"><i class="mdi mdi-star"></i> Ya</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-light">Tidak</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($row['is_active']): ?>
+                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-secondary">Nonaktif</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <a href="?page=edit_event&id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-sm btn-primary" title="Ubah">
+                                                    <i class="mdi mdi-pencil"></i>
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
+                                                    data-id="<?php echo $row['id']; ?>"
+                                                    data-title="<?php echo htmlspecialchars($row['title'] ?? ''); ?>">
+                                                    <i class="mdi mdi-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
-                    <div class="text-center py-5">
-                        <i class="mdi mdi-calendar-blank text-muted" style="font-size: 48px;"></i>
-                        <h5 class="mt-3 text-muted">Belum Ada Acara</h5>
-                        <p class="text-muted">Klik "Tambah Acara Baru" untuk membuat acara pertama Anda.</p>
-                        <a href="?page=add_event" class="btn btn-success mt-2">
-                            <i class="mdi mdi-plus"></i> Tambah Acara Baru
-                        </a>
-                    </div>
+                        <div class="text-center py-5">
+                            <i class="mdi mdi-calendar-blank text-muted" style="font-size: 48px;"></i>
+                            <h5 class="mt-3 text-muted">Belum Ada Acara</h5>
+                            <p class="text-muted">Klik "Tambah Acara Baru" untuk membuat acara pertama Anda.</p>
+                            <a href="?page=add_event" class="btn btn-success mt-2">
+                                <i class="mdi mdi-plus"></i> Tambah Acara Baru
+                            </a>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -262,37 +267,37 @@ if (isset($_SESSION['alert'])) {
 <?php echo $alert_script; ?>
 
 <script>
-// SweetAlert untuk konfirmasi hapus
-document.querySelectorAll('.btn-delete').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const title = this.dataset.title;
-        
-        Swal.fire({
-            icon: 'warning',
-            title: 'Hapus Acara?',
-            html: 'Anda akan menghapus acara:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
-            showCancelButton: true,
-            confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
-            cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
-            confirmButtonColor: '#dc3545',
-            cancelButtonColor: '#6c757d',
-            reverseButtons: true,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Menghapus...',
-                    html: 'Mohon tunggu sebentar',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                window.location.href = '?page=delete_event&id=' + id + '&confirm=yes';
-            }
+    // SweetAlert untuk konfirmasi hapus
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+            const title = this.dataset.title;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Acara?',
+                html: 'Anda akan menghapus acara:<br><strong>"' + title + '"</strong><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
+                showCancelButton: true,
+                confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
+                cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    window.location.href = '?page=delete_event&id=' + id + '&confirm=yes';
+                }
+            });
         });
     });
-});
 </script>

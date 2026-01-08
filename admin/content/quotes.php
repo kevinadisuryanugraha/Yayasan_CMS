@@ -50,10 +50,12 @@ if (isset($_SESSION['alert'])) {
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu Kutipan?</h5>
+                            <h5 class="mb-2"><i class="mdi mdi-help-circle-outline text-primary mr-2"></i>Apa itu
+                                Kutipan?</h5>
                             <p class="mb-0 text-muted">
-                                <strong>Kutipan (Quotes)</strong> adalah kata-kata inspiratif yang ditampilkan dalam bentuk 
-                                slider/carousel di halaman utama. Kutipan ini dapat berupa ayat Al-Quran, hadits, 
+                                <strong>Kutipan (Quotes)</strong> adalah kata-kata inspiratif yang ditampilkan dalam
+                                bentuk
+                                slider/carousel di halaman utama. Kutipan ini dapat berupa ayat Al-Quran, hadits,
                                 atau kata-kata bijak dari ulama dan tokoh Islam.
                             </p>
                         </div>
@@ -90,64 +92,69 @@ if (isset($_SESSION['alert'])) {
                     </div>
 
                     <?php if (count($rows) > 0): ?>
-                    <div class="table-responsive">
-                        <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="5%">No</th>
-                                    <th width="35%">Kutipan</th>
-                                    <th width="15%">Penulis</th>
-                                    <th width="20%">Sumber</th>
-                                    <th width="8%">Urutan</th>
-                                    <th width="8%">Status</th>
-                                    <th width="12%">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($rows as $key => $row): ?>
+                        <div class="table-responsive">
+                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                                width="100%">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $key + 1; ?></td>
-                                        <td>
-                                            <i class="mdi mdi-format-quote-open text-primary"></i>
-                                            <?php 
-                                            $quote = htmlspecialchars($row['quote_text'] ?? '');
-                                            echo strlen($quote) > 80 ? substr($quote, 0, 80) . '...' : $quote;
-                                            ?>
-                                        </td>
-                                        <td><strong><?php echo htmlspecialchars($row['author'] ?? '-'); ?></strong></td>
-                                        <td><small class="text-muted"><?php echo htmlspecialchars($row['source'] ?? '-'); ?></small></td>
-                                        <td><span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span></td>
-                                        <td>
-                                            <?php if ($row['is_active']): ?>
-                                                <span class="badge badge-success">Aktif</span>
-                                            <?php else: ?>
-                                                <span class="badge badge-secondary">Nonaktif</span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <a href="?page=edit_quote&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary" title="Ubah">
-                                                <i class="mdi mdi-pencil"></i> Ubah
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
-                                                data-id="<?php echo $row['id']; ?>"
-                                                data-quote="<?php echo htmlspecialchars(substr($row['quote_text'] ?? '', 0, 50)); ?>">
-                                                <i class="mdi mdi-delete"></i> Hapus
-                                            </button>
-                                        </td>
+                                        <th width="5%">No</th>
+                                        <th width="35%">Kutipan</th>
+                                        <th width="15%">Penulis</th>
+                                        <th width="20%">Sumber</th>
+                                        <th width="8%">Urutan</th>
+                                        <th width="8%">Status</th>
+                                        <th width="12%">Aksi</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($rows as $key => $row): ?>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td>
+                                                <i class="mdi mdi-format-quote-open text-primary"></i>
+                                                <?php
+                                                $quote = htmlspecialchars($row['quote_text'] ?? '');
+                                                echo strlen($quote) > 80 ? substr($quote, 0, 80) . '...' : $quote;
+                                                ?>
+                                            </td>
+                                            <td><strong><?php echo htmlspecialchars($row['author'] ?? '-'); ?></strong></td>
+                                            <td><small
+                                                    class="text-muted"><?php echo htmlspecialchars($row['source'] ?? '-'); ?></small>
+                                            </td>
+                                            <td><span class="badge badge-info"><?php echo $row['order_position'] ?? 0; ?></span>
+                                            </td>
+                                            <td>
+                                                <?php if ($row['is_active']): ?>
+                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php else: ?>
+                                                    <span class="badge badge-secondary">Nonaktif</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <a href="?page=edit_quote&id=<?php echo $row['id']; ?>"
+                                                    class="btn btn-sm btn-primary" title="Ubah">
+                                                    <i class="mdi mdi-pencil"></i> Ubah
+                                                </a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-delete" title="Hapus"
+                                                    data-id="<?php echo $row['id']; ?>"
+                                                    data-quote="<?php echo htmlspecialchars(substr($row['quote_text'] ?? '', 0, 50)); ?>">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
-                    <div class="text-center py-5">
-                        <i class="mdi mdi-format-quote-close text-muted" style="font-size: 48px;"></i>
-                        <h5 class="mt-3 text-muted">Belum Ada Kutipan</h5>
-                        <p class="text-muted">Klik "Tambah Kutipan Baru" untuk membuat kutipan pertama Anda.</p>
-                        <a href="?page=add_quote" class="btn btn-success mt-2">
-                            <i class="mdi mdi-plus"></i> Tambah Kutipan Baru
-                        </a>
-                    </div>
+                        <div class="text-center py-5">
+                            <i class="mdi mdi-format-quote-close text-muted" style="font-size: 48px;"></i>
+                            <h5 class="mt-3 text-muted">Belum Ada Kutipan</h5>
+                            <p class="text-muted">Klik "Tambah Kutipan Baru" untuk membuat kutipan pertama Anda.</p>
+                            <a href="?page=add_quote" class="btn btn-success mt-2">
+                                <i class="mdi mdi-plus"></i> Tambah Kutipan Baru
+                            </a>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -250,37 +257,37 @@ if (isset($_SESSION['alert'])) {
 <?php echo $alert_script; ?>
 
 <script>
-// SweetAlert untuk konfirmasi hapus
-document.querySelectorAll('.btn-delete').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const id = this.dataset.id;
-        const quote = this.dataset.quote;
-        
-        Swal.fire({
-            icon: 'warning',
-            title: 'Hapus Kutipan?',
-            html: 'Anda akan menghapus kutipan:<br><em>"' + quote + '..."</em><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
-            showCancelButton: true,
-            confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
-            cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
-            confirmButtonColor: '#dc3545',
-            cancelButtonColor: '#6c757d',
-            reverseButtons: true,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: 'Menghapus...',
-                    html: 'Mohon tunggu sebentar',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                window.location.href = '?page=delete_quote&id=' + id + '&confirm=yes';
-            }
+    // SweetAlert untuk konfirmasi hapus
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.dataset.id;
+            const quote = this.dataset.quote;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hapus Kutipan?',
+                html: 'Anda akan menghapus kutipan:<br><em>"' + quote + '..."</em><br><br><small class="text-danger">Tindakan ini tidak dapat dibatalkan!</small>',
+                showCancelButton: true,
+                confirmButtonText: '<i class="mdi mdi-delete"></i> Ya, Hapus!',
+                cancelButtonText: '<i class="mdi mdi-close"></i> Batal',
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    window.location.href = '?page=delete_quote&id=' + id + '&confirm=yes';
+                }
+            });
         });
     });
-});
 </script>

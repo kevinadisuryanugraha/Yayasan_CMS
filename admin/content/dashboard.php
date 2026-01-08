@@ -32,8 +32,10 @@ $total_services = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service_se
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h4 class="text-white">Selamat Datang, <?php echo htmlspecialchars($_SESSION['NAME']); ?>!</h4>
-                            <p class="mb-0">Panel admin untuk mengelola konten website Hafsa. Gunakan menu di samping untuk navigasi.</p>
+                            <h4 class="text-white">Selamat Datang, <?php echo htmlspecialchars($_SESSION['NAME']); ?>!
+                            </h4>
+                            <p class="mb-0">Panel admin untuk mengelola konten website Hafsa. Gunakan menu di samping
+                                untuk navigasi.</p>
                         </div>
                         <div class="col-lg-4 text-right">
                             <i class="bi bi-person-circle" style="font-size: 80px; opacity: 0.3;"></i>
@@ -58,7 +60,8 @@ $total_services = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service_se
                         <h4 class="font-500"><?php echo $total_users; ?></h4>
                     </div>
                     <div class="pt-2">
-                        <a href="?page=users" class="text-white-50">Kelola Pengguna <i class="bi bi-arrow-right"></i></a>
+                        <a href="?page=users" class="text-white-50">Kelola Pengguna <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -94,7 +97,8 @@ $total_services = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service_se
                         <h4 class="font-500"><?php echo $total_programs; ?></h4>
                     </div>
                     <div class="pt-2">
-                        <a href="?page=programs" class="text-white-50">Kelola Program <i class="bi bi-arrow-right"></i></a>
+                        <a href="?page=programs" class="text-white-50">Kelola Program <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -112,7 +116,8 @@ $total_services = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service_se
                         <h4 class="font-500"><?php echo $total_quotes; ?></h4>
                     </div>
                     <div class="pt-2">
-                        <a href="?page=quotes" class="text-white-50">Kelola Kutipan <i class="bi bi-arrow-right"></i></a>
+                        <a href="?page=quotes" class="text-white-50">Kelola Kutipan <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -190,7 +195,8 @@ $total_services = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM service_se
                                 </tr>
                                 <tr>
                                     <td><i class="bi bi-person-check text-warning mr-2"></i> Login sebagai</td>
-                                    <td class="text-right"><strong><?php echo htmlspecialchars($_SESSION['NAME']); ?></strong></td>
+                                    <td class="text-right">
+                                        <strong><?php echo htmlspecialchars($_SESSION['NAME']); ?></strong></td>
                                 </tr>
                                 <tr>
                                     <td><i class="bi bi-envelope text-danger mr-2"></i> Email</td>

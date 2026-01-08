@@ -53,6 +53,13 @@
                 </li>
 
                 <li>
+                    <a href="?page=appearance" class="waves-effect">
+                        <i class="mdi mdi-palette"></i>
+                        <span>Tampilan</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="?page=users" class="waves-effect">
                         <i class="mdi mdi-account-multiple"></i>
                         <span>Manajemen User</span>
