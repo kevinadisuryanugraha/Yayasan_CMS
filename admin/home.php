@@ -3,6 +3,9 @@ session_start();
 ob_start();
 include 'koneksi.php';
 
+// Define Security Constant
+define('INDEX_AUTH', true);
+
 if (empty($_SESSION['ID_USER'])) {
     header("Location: index.php?access=failed");
 }
@@ -60,9 +63,26 @@ if (empty($_SESSION['ID_USER'])) {
                     <!-- Start content -->
                     <?php
                     if (isset($_GET['page'])) {
-                        if (file_exists('content/' . $_GET['page'] . '.php')) {
-                            include 'content/' . $_GET['page'] . '.php';
-                        } else {
+                        $page = $_GET['page'];
+                        $found = false;
+
+                        // Define directories to search
+                        $directories = [
+                            'content/',
+                            'content/cms_home/',
+                            'content/cms_about/'
+                        ];
+
+                        foreach ($directories as $dir) {
+                            $file = $dir . $page . '.php';
+                            if (file_exists($file)) {
+                                include $file;
+                                $found = true;
+                                break;
+                            }
+                        }
+
+                        if (!$found) {
                             include 'content/404.php';
                         }
                     } else {

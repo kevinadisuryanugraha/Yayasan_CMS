@@ -96,55 +96,25 @@ include_once __DIR__ . '/site_settings.php';
 
                         <ul class="nav-links">
                             <li class="nav-item">
-                                <a href="index.php" class="nav-link active">
+                                <a href="?page=home" class="nav-link active">
                                     <i class="icofont-home"></i>
                                     <span>Beranda</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="about.php" class="nav-link">
+                                <a href="?page=about" class="nav-link">
                                     <i class="icofont-info-circle"></i>
                                     <span>Tentang Kami</span>
                                 </a>
                             </li>
-                            <li class="nav-item has-dropdown">
-                                <a href="#0" class="nav-link dropdown-toggle">
+                            <li class="nav-item">
+                                <a href="?page=event" class="nav-link">
                                     <i class="icofont-calendar"></i>
                                     <span>Acara</span>
-                                    <i class="icofont-rounded-down dropdown-arrow"></i>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="events.php">Semua Acara</a></li>
-                                    <li><a href="events-single.php">Detail Acara</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-dropdown">
-                                <a href="#0" class="nav-link dropdown-toggle">
-                                    <i class="icofont-heart-alt"></i>
-                                    <span>Program</span>
-                                    <i class="icofont-rounded-down dropdown-arrow"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="programs.php">Semua Program</a></li>
-                                    <li><a href="program-single.php">Detail Program</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-dropdown">
-                                <a href="#0" class="nav-link dropdown-toggle">
-                                    <i class="icofont-ui-file"></i>
-                                    <span>Halaman</span>
-                                    <i class="icofont-rounded-down dropdown-arrow"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="gallery.php">Galeri</a></li>
-                                    <li><a href="scholar.php">Ulama Kami</a></li>
-                                    <li><a href="blog.php">Blog</a></li>
-                                    <li><a href="sermons.php">Ceramah</a></li>
-                                    <li><a href="services.php">Layanan</a></li>
-                                </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="contact.php" class="nav-link">
+                                <a href="?page=contact" class="nav-link">
                                     <i class="icofont-envelope"></i>
                                     <span>Kontak</span>
                                 </a>

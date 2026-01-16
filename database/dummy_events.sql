@@ -1,0 +1,171 @@
+-- =============================================
+-- Dummy Data untuk Events - 5 Acara Contoh
+-- Jalankan SQL ini di phpMyAdmin atau MySQL CLI
+-- =============================================
+
+INSERT INTO `events` (
+    `title`, `slug`, `category`, `description`, `event_date`, `date_end`, `event_time`,
+    `location`, `location_address`, `location_maps`, `image`, `image_cover`,
+    `speaker_name`, `speaker_title`, `speaker_bio`, `speaker_image`,
+    `quota`, `registered`, `price`, `contact_phone`, `contact_whatsapp`,
+    `is_featured`, `countdown_enabled`, `countdown_date`, `order_position`, `is_active`, `status`
+) VALUES 
+
+-- Event 1: Kajian Akbar
+(
+    'Kajian Akbar Ramadhan 1447H - Menjemput Berkah Bulan Suci',
+    'kajian-akbar-ramadhan-1447h-menjemput-berkah-bulan-suci',
+    'Kajian',
+    '<p>Kajian akbar menyambut bulan suci Ramadhan 1447H dengan tema <strong>"Menjemput Berkah Bulan Suci"</strong>.</p><p>Acara ini akan membahas keutamaan bulan Ramadhan, persiapan menyambut Ramadhan, dan tips agar ibadah puasa lebih bermakna.</p><ul><li>Sesi 1: Keutamaan Bulan Ramadhan</li><li>Sesi 2: Persiapan Menyambut Ramadhan</li><li>Sesi 3: Tips Ibadah Puasa Berkualitas</li></ul>',
+    '2026-02-15',
+    '2026-02-15 17:00:00',
+    '14:00:00',
+    'Masjid Istiqlal Jakarta',
+    'Jl. Taman Wijaya Kusuma, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710',
+    'https://maps.google.com/?q=masjid+istiqlal+jakarta',
+    'uploads/events/event_kajian_ramadhan.jpg',
+    NULL,
+    'Ustadz Adi Hidayat, Lc., M.A.',
+    'Pendakwah & Pengasuh Pondok Pesantren',
+    '<p>Ustadz Adi Hidayat adalah pendakwah Indonesia yang dikenal dengan kajian Al-Quran dan hadits. Beliau merupakan pengasuh Pondok Pesantren Quantum Akhyar.</p>',
+    NULL,
+    500,
+    0,
+    0.00,
+    '081234567890',
+    '6281234567890',
+    1,
+    1,
+    '2026-02-15 14:00:00',
+    1,
+    1,
+    'published'
+),
+
+-- Event 2: Seminar Parenting
+(
+    'Seminar Parenting Islami: Mendidik Anak di Era Digital',
+    'seminar-parenting-islami-mendidik-anak-di-era-digital',
+    'Seminar',
+    '<p>Seminar parenting untuk orang tua muslim yang ingin mendidik anak dengan nilai-nilai Islam di tengah era digital yang penuh tantangan.</p><p>Materi yang akan dibahas:</p><ul><li>Tantangan mendidik anak di era digital</li><li>Pendekatan Islami dalam parenting</li><li>Mengatasi kecanduan gadget pada anak</li><li>Membangun karakter Islami sejak dini</li></ul>',
+    '2026-02-20',
+    '2026-02-20 16:00:00',
+    '09:00:00',
+    'Hotel Grand Mercure Jakarta',
+    'Jl. Hayam Wuruk No.123, Mangga Besar, Tamansari, Jakarta Barat, DKI Jakarta 11150',
+    'https://maps.google.com/?q=hotel+mercure+jakarta',
+    'uploads/events/event_parenting.jpg',
+    NULL,
+    'Dr. Hj. Zakiyah Daradjat',
+    'Psikolog & Pakar Pendidikan Islam',
+    '<p>Dr. Hj. Zakiyah Daradjat adalah psikolog dan pakar pendidikan Islam yang telah menulis berbagai buku tentang parenting dan psikologi anak.</p>',
+    NULL,
+    200,
+    0,
+    50000.00,
+    '082345678901',
+    '6282345678901',
+    0,
+    1,
+    '2026-02-20 09:00:00',
+    2,
+    1,
+    'published'
+),
+
+-- Event 3: Workshop Tahfidz
+(
+    'Workshop Menghafal Al-Quran dengan Metode ILHAM',
+    'workshop-menghafal-al-quran-dengan-metode-ilham',
+    'Workshop',
+    '<p>Workshop praktis menghafal Al-Quran dengan metode ILHAM (Ikhlas, Lancar, Hafal, Amalkan, Muroja\'ah).</p><p>Peserta akan dibimbing langsung untuk praktik menghafal dengan teknik:</p><ul><li>Teknik visualisasi ayat</li><li>Metode pengulangan efektif</li><li>Tips menjaga hafalan</li><li>Jadwal muroja\'ah harian</li></ul><p><strong>Bonus:</strong> Buku panduan & sertifikat peserta</p>',
+    '2026-03-01',
+    '2026-03-01 15:00:00',
+    '08:00:00',
+    'Gedung Dakwah Muhammadiyah',
+    'Jl. Menteng Raya No.62, Kebon Sirih, Kec. Menteng, Kota Jakarta Pusat, DKI Jakarta 10340',
+    'https://maps.google.com/?q=gedung+dakwah+muhammadiyah',
+    'uploads/events/event_tahfidz.jpg',
+    NULL,
+    'Ustadz Yusuf Mansur',
+    'Pendiri PPPA Daarul Quran',
+    '<p>Ustadz Yusuf Mansur adalah pendiri PPPA Daarul Quran, lembaga yang fokus pada program tahfidz Al-Quran. Beliau dikenal dengan dakwah sedekah dan program hafal Quran.</p>',
+    NULL,
+    100,
+    0,
+    150000.00,
+    '083456789012',
+    '6283456789012',
+    1,
+    0,
+    NULL,
+    3,
+    1,
+    'published'
+),
+
+-- Event 4: Bakti Sosial
+(
+    'Bakti Sosial Peduli Sesama - Berbagi di Bulan Berkah',
+    'bakti-sosial-peduli-sesama-berbagi-di-bulan-berkah',
+    'Sosial',
+    '<p>Program bakti sosial untuk membantu masyarakat kurang mampu di sekitar Jakarta.</p><p>Kegiatan yang akan dilakukan:</p><ul><li>Pembagian sembako kepada 500 keluarga</li><li>Pemeriksaan kesehatan gratis</li><li>Khitanan massal gratis</li><li>Pembagian perlengkapan sekolah</li></ul><p>Mari bergabung menjadi relawan dan berbagi kebahagiaan!</p>',
+    '2026-03-10',
+    '2026-03-10 14:00:00',
+    '07:00:00',
+    'Lapangan Monas Jakarta',
+    'Jl. Medan Merdeka, Gambir, Kec. Gambir, Kota Jakarta Pusat, DKI Jakarta 10110',
+    'https://maps.google.com/?q=monas+jakarta',
+    'uploads/events/event_baksos.jpg',
+    NULL,
+    '',
+    '',
+    '',
+    NULL,
+    300,
+    0,
+    0.00,
+    '084567890123',
+    '6284567890123',
+    0,
+    0,
+    NULL,
+    4,
+    1,
+    'published'
+),
+
+-- Event 5: Pelatihan Public Speaking
+(
+    'Pelatihan Public Speaking untuk Dai Muda',
+    'pelatihan-public-speaking-untuk-dai-muda',
+    'Pelatihan',
+    '<p>Pelatihan intensif public speaking khusus untuk dai muda yang ingin meningkatkan kemampuan berdakwah.</p><p>Materi pelatihan:</p><ul><li>Teknik berbicara di depan umum</li><li>Cara menyusun materi dakwah yang menarik</li><li>Body language dan intonasi</li><li>Mengatasi demam panggung</li><li>Praktik ceramah dengan feedback</li></ul><p><strong>Durasi:</strong> 2 hari full (dengan penginapan)</p>',
+    '2026-03-20',
+    '2026-03-21 17:00:00',
+    '08:00:00',
+    'Pesantren Daarut Tauhiid Bandung',
+    'Jl. Gegerkalong Girang No.67, Gegerkalong, Kec. Sukasari, Kota Bandung, Jawa Barat 40153',
+    'https://maps.google.com/?q=daarut+tauhiid+bandung',
+    'uploads/events/event_public_speaking.jpg',
+    NULL,
+    'Ustadz Abdullah Gymnastiar',
+    'Pendiri Pesantren Daarut Tauhiid',
+    '<p>Ustadz Abdullah Gymnastiar atau Aa Gym adalah pendiri dan pemimpin Pondok Pesantren Daarut Tauhiid Bandung. Beliau dikenal dengan konsep Manajemen Qolbu.</p>',
+    NULL,
+    50,
+    0,
+    500000.00,
+    '085678901234',
+    '6285678901234',
+    0,
+    1,
+    '2026-03-20 08:00:00',
+    5,
+    1,
+    'draft'
+);
+
+-- =============================================
+-- Selesai - 5 Events berhasil ditambahkan
+-- =============================================
